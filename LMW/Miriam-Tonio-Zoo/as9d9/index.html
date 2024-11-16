@@ -1,0 +1,123 @@
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lass mal wieder,...</title>
+	
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/popup_style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAI-lO0z1M0wk_naexkBT4YzqYvTpz18c"></script>
+	<script src="scripts/map.js"></script>
+	<script src="scripts/generate_page.js"></script>
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="image-container" onclick="open_image_gen_popup()">
+			<img id = "header_pic" src="img/zoo.png" height = "100%" width = "100%">
+		</div>
+		<div class="banner" width = "100%" >
+			<div class = "banner_text" align = "right" vertical-align = "middle">
+				<i class="fa fa-bars"></i>  Menu
+			</div> 
+		</div>
+		<div class="logo" ><img src="img/logo.png" width = "70" height = "70"></img></div>
+		<div class="text-overlay" contenteditable="true">
+			<p class = "cursive-text"> Hey Miriam, lass uns mal wieder zusammmen in den Zoo,...</p>
+		</div>
+	</div>
+	
+	<div class="flex-container">
+		<img id = "calender_pic" src="img/clock.jpg" height = "280px" width = "280px" style = "opacity:0.2;filter:alpha(opacity=20);object-fit: cover;">
+		<div id = "dates">
+			Wann wollen wir uns treffen? <br><br>
+			<div contenteditable="true">
+				<input type="radio" id="one" name="meeting_time" value="" checked> <input type="date" id="date1" value="2024-08-14">
+			</div><br>
+			<div contenteditable="true">
+				<input type="radio" id="one" name="meeting_time" value="" checked> <input type="date" id="date2" value="2024-08-14">
+			</div><br>
+			<div contenteditable="true">
+				<input type="radio" id="one" name="meeting_time" value="" checked> <input type="date" id="date3" value="2024-08-14">
+			</div><br>
+		</div>
+		<div width>
+			<textarea id = "answer_text" value = "asd"> </textarea><br>
+			<button type="submit" formaction="URL" style="height:20px"> Abschicken </button>
+		</div>
+		<img id = "calender_pic" src="img/envelop.png" height = "280px" width = "280px">
+	</div>
+	
+		
+	<input id="location-input" type="text" placeholder="Geben Sie einen Ort ein">
+	<button onclick="changeLocation()">Standort ändern</button>
+	<button onclick="openPopup()">Open Popup</button>
+	<div id = "bottom_div">
+		<div id = "map"></div>
+	</div>
+	<!--
+	<div class="submit-button">
+		<input id="clickMe" type="button" value="Seite verschicken" onclick="generate_page()" />
+	</div>
+	-->
+	
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+			<form>
+				<label for="name1">Dein Name:</label>
+				<input type="text" id="Inviter" name="Inviter" value="Tonio"><br><br>
+
+				<label for="name2">Wen lädst du ein?:</label>
+				<input type="text" id="Invitee" name="Invitee" value="Miriam"><br><br>
+
+				<label for="weitere-info">Was wollt ihr zusammen machen?:</label>
+				<input type="text" id="activity" name="weitere-info" value = "Zoo"><br><br>
+				
+				Wo trefft ihr euch? <br>
+				<input type="radio" id="option2" name="options" value="Digital">Digital: <input type="text" id="location_digital" name="location_digital" value="Skype"><br>
+				<input type="radio" id="option1" name="options" value="Vor Ort" checked>Vor Ort: <input type="text" id="location_analog" name="location_analog" value="Frankfurt"><br>
+
+				<h5>Infos für eine verbesserte Bildgenerierung: </h5>
+				<label for="option">Wie ist eure Beziehung:</label>
+				<select id="relationship" name="relationship">
+					<option value="friends">Freunde</option>
+					<option value="couple">Pärchen</option>
+					<option value="colleagues">Kollegen</option>
+				</select><br><br>
+				<label for="option">Wie wird die Aktivität:</label>
+				<select id="activity_mood" name="activity_mood">
+					<option value="friends">lustig</option>
+					<option value="couple">entspannend</option>
+					<option value="colleagues">quality time</option>
+					<option value="colleagues">sportlich anstrengend</option>
+				</select>
+				<br>
+
+			</form><br>
+            <button class="submit-btn" onclick="submitForm()">Submit</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <div id="image_gen_popup" class="popup-overlay">
+        <div class="popup-content">
+			<form>
+				Neues Bild generieren: <br>
+				<label for="name1">Dein Prompt:</label>
+				<input type="text" id="Inviter" name="Inviter" value="Freunde im Zoo"><br><br>
+				<img src="zoo.jpg" height = "50%" width = "50%"></img>
+			</form><br>
+            <button class="submit-btn" onclick="submitForm()">Submit</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

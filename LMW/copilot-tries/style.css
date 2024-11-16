@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.datepicker-container {
+    position: relative;
+}
+
+#datepicker {
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+#datepicker:focus {
+    border-color: #0056b3;
+}
+
+.calendar {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.calendar th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.calendar td:hover {
+    background-color: #f0f0f0;
+}

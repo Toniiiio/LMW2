@@ -1,0 +1,12 @@
+
+#arrr {
+    font-size: 33px;
+	color: yellow;
+}
+
+@media only screen and (min-width:380px) and (max-width:1000px){
+	#arrr {
+		font-size: 13px;
+		color: blue;
+	}
+}
